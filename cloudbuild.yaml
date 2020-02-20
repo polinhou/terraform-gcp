@@ -1,0 +1,25 @@
+steps:
+- id: 'tf init'
+  name: 'hashicorp/terraform:0.11.14'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+        cd instance
+        terraform init
+- id: 'tf plan'
+  name: 'hashicorp/terraform:0.11.14'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+        cd instance
+        terraform plan
+- id: 'tf apply'
+  name: 'hashicorp/terraform:0.11.14'
+  entrypoint: 'sh'
+  args:
+  - '-c'
+  - |
+        cd instance
+        terraform apply -auto-approve

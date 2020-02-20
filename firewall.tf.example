@@ -1,0 +1,120 @@
+module "allow" {
+  source= "./module/firewall"
+
+  allow = {
+    "ingress" = [
+      {
+        name          = "allow-web"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target  = {
+          "tcp"  = ["80", "443"]
+          "icmp" = ""
+        }
+        source_tags = [""]
+        target_tags = ["web"]
+        priority    = ""
+      },
+      {
+        name          = "default-allow-http"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "tcp" = ["80"]
+        }
+        source_tags = [""]
+        target_tags = ["http"]
+        priority    = ""
+      },
+      {
+        name          = "default-allow-https"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "tcp" = ["443"]
+        }
+        source_tags = [""]
+        target_tags = ["https"]
+        priority    = ""
+      },
+      {
+        name          = "default-allow-icmp"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "icmp" = ""
+        }
+        source_tags = [""]
+        target_tags = [""]
+        priority    = "65534"
+      },
+      {
+        name          = "default-allow-internal"
+        network       = "default"
+        description   = ""
+        source_ranges = ["10.128.0.0/9"]
+        target = {
+          "tcp"  = ""
+          "udp"  = ""
+          "icmp" = ""
+        }
+        source_tags = [""]
+        target_tags = [""]
+        priority    = "65534"
+      },
+      {
+        name          = "default-allow-rdp"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "tcp"  = ["3389"]
+        }
+        source_tags = [""]
+        target_tags = [""]
+        priority    = "65534"
+      },
+      {
+        name          = "default-allow-ssh"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "tcp"  = ["22"]
+        }
+        source_tags = [""]
+        target_tags = [""]
+        priority    = "65534"
+      },
+    ]
+    egress = [
+    ]
+  }
+}
+
+module "deny" {
+  source = "./module/firewall"
+
+  deny = {
+    ingress = [
+      {
+        name          = "deny-all"
+        network       = "default"
+        description   = ""
+        source_ranges = ["0.0.0.0/0"]
+        target = {
+          "all" = ""
+        }
+        source_tags = [""]
+        target_tags = [""]
+        priority    = "65535"
+      }
+    ]
+    egress = [
+    ]
+  }
+}

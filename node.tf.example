@@ -1,0 +1,15 @@
+module "web" {
+  source       = "./module/node"
+
+  name         = "web"
+  cluster      = module.gke-cluster.cluster_name
+  machine_type = "g1-small"
+}
+
+#module "core" {
+#  source       = "./module/node"
+#
+#  name         = "core"
+#  cluster      = module.gke-cluster.cluster_name
+#  machine_type = "g1-small"
+#}
