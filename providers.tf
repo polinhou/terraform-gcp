@@ -1,3 +1,3 @@
 provider "google" {
-  project     = "secure-wharf-257715"
+  project     = var.project
 }

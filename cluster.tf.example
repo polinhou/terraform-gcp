@@ -1,5 +1,5 @@
 module "gke-cluster" {
-  source             = "./module/cluster"
+  source             = "./modules/cluster"
 
   name               = "cluster"
   location           = "asia-east1"

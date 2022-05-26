@@ -1,3 +1,5 @@
+variable "network" {}
+
 variable "allow" {
   default = {
     ingress = []

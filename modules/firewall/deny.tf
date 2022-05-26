@@ -2,7 +2,7 @@ resource "google_compute_firewall" "deny_ingress_firewall" {
   count = length(var.deny.ingress)
 
   name    = var.deny.ingress[count.index].name
-  network = var.deny.ingress[count.index].network
+  network = var.network
   description = var.deny.ingress[count.index].description
 
   direction = "INGRESS"
@@ -28,7 +28,7 @@ resource "google_compute_firewall" "deny_egress_firewall" {
   count = length(var.deny.egress)
 
   name    = var.deny.egress[count.index].name
-  network = var.deny.egress[count.index].network
+  network = var.network
   description = var.deny.egress[count.index].description
 
   direction = "EGRESS"

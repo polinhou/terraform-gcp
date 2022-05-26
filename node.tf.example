@@ -1,5 +1,5 @@
 module "web" {
-  source       = "./module/node"
+  source       = "./modules/node"
 
   name         = "web"
   cluster      = module.gke-cluster.cluster_name
@@ -7,7 +7,7 @@ module "web" {
 }
 
 #module "core" {
-#  source       = "./module/node"
+#  source       = "./modules/node"
 #
 #  name         = "core"
 #  cluster      = module.gke-cluster.cluster_name

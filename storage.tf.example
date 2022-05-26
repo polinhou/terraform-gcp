@@ -1,0 +1,6 @@
+module "storage_bucket" {
+  source   = "./modules/storage"
+
+  name     = "polin-bucket"
+  location = "US"
+}
