@@ -1,7 +1,0 @@
-module "gke-cluster" {
-  source             = "./modules/cluster"
-
-  name               = "cluster"
-  location           = "asia-east1"
-  initial_node_count = "1"
-}
